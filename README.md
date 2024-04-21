@@ -235,5 +235,6 @@ gem の devise を使用してログイン機能を実装予定
 https://github.com/users/koujiendo1123/projects/2
 
 ### herokuURL
+https://eighthsungallery-417ba0c5aa44.herokuapp.com/
 
 
