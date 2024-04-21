@@ -232,7 +232,7 @@ gem の devise を使用してログイン機能を実装予定
 
 ### プロジェクト URL
 
-https://github.com/users/koujiendo1123/projects/1
+https://github.com/users/koujiendo1123/projects/2
 
 ### herokuURL
 
