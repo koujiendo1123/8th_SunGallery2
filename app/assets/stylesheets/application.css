@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ .custom-logo-size {
+  width: 50px;  /* 幅を50ピクセルに設定 */
+  height: auto;  /* 高さを自動で調整し、アスペクト比を維持 */
+}
+
