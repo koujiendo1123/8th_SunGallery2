@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <!-- 作品名と作者名のセクション -->
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="row">
+        <div class="col-md-6 text-left">
+          <h2>作品名:<%= @painting.name %></h2>
+        </div>
+        <div class="col-md-6 text-left">
+          <h2>作者名:仮作者名</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 画像のセクション -->
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= image_tag '8th_SunGallary_logo.png', class: "img-fluid", alt: @painting.name %>
+    </div>
+  </div>
+  <!-- ダウンロードボタンのセクション -->
+  <div class="row">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="mt-3">
+        <a href='#' class='btn btn-primary'>ダウンロード</a>
+      </div>
+    </div>
+  </div>
+</div>

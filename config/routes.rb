@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   
   # 取り急ぎトップページを作成
   root 'top#index'
+  # 絵画のルーティングを作成
+  resources :paintings
 end

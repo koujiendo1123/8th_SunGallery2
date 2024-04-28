@@ -4,7 +4,12 @@ class PaintingsController < ApplicationController
     @paintings = Painting.all
   end
 
-  def def new
+  def show
+    @painting = Painting.find(params[:id])
+  end
+  
+
+  def new
     @painting = Painting.new
   end
 
