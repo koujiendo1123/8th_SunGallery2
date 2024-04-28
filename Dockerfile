@@ -16,7 +16,7 @@ COPY Gemfile.lock ${APP_HOME}/Gemfile.lock
 
 # Rails7ではWebpackerが標準では組み込まれなくなったので、yarnやnodejsのインストールが不要
 RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get install -y default-mysql-client \
         git
 
 # Gemをアップデート
