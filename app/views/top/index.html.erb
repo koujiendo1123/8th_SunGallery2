@@ -1,8 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-md-4 mx-auto">
-      <%= image_tag 'Sunflower.jpg', class: "img-fluid", alt: "Responsive image" %>
+  <br>
+    <div class="row">
+      <div class="col-12 col-md-4 mx-auto">
+        <%= image_tag 'Sunflower.jpg', class: "img-fluid", alt: "Responsive image" %>
+      </div>
+        <%= render 'paintings/index' , paintings: @paintings %>
     </div>
-      <%= render 'paintings/index' , paintings: @paintings %>
-  </div>
 </div>
+
+docker-compose run web bin/rails g model Author name:string authorable_id:bigint authorable_type:string
+
