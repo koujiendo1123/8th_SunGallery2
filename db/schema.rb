@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_29_065911) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_01_125337) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,6 +46,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_29_065911) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["authorable_type", "authorable_id"], name: "index_authors_on_authorable_type_and_authorable_id"
+  end
+
+  create_table "general_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "mail"
+    t.string "password_digest"
+    t.string "reset_password_token"
+    t.string "encrypted_password"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "paintings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
