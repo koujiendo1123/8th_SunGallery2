@@ -15,14 +15,19 @@ class PaintingsController < ApplicationController
 
   def create
     @painting = Painting.new(permit_params)
-    @painting.save
+    if @painting.save
+      flash[:success] = "Object successfully created"
     redirect_to @painting 
+    else
+      flash[:error] = "Something went wrong"
+      render 'new'
+    end
   end
 
   private
   
   def permit_params
-    params.require(:painting).permit(:name)
+    params.require(:painting).permit(:name, :author_id)
   end
     
 end
