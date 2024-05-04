@@ -1,6 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  # deviceのメール機能を実装するために追記。仮でexample.comとする
+  config.action_mailer.default_url_options = { host: 'example.com' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
