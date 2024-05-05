@@ -14,10 +14,15 @@ WORKDIR ${APP_HOME}
 COPY Gemfile ${APP_HOME}/Gemfile
 COPY Gemfile.lock ${APP_HOME}/Gemfile.lock
 
-# Rails7ではWebpackerが標準では組み込まれなくなったので、yarnやnodejsのインストールが不要
-RUN apt-get update
-RUN apt-get install -y default-mysql-client \
-        git
+# Node.jsとYarnをインストール
+RUN apt-get update && \
+    apt-get install -y default-mysql-client git && \
+    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get install -y nodejs && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && \
+    apt-get install -y yarn
 
 # Gemをアップデート
 RUN bundle install

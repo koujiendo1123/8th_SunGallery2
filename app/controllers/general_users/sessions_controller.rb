@@ -4,9 +4,10 @@ class GeneralUsers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+   def new
+    @generaluser = GeneralUser.new
+     super
+   end
 
   # POST /resource/sign_in
   # def create
@@ -14,9 +15,11 @@ class GeneralUsers::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+   def destroy
+    logout
+    redirect_to root_path, status: :see_other, success: 'ログアウトしました'
+     super
+   end
 
   # protected
 

@@ -52,7 +52,10 @@ gem "bootsnap", require: false
 gem 'dotenv-rails'
 
 ## 認証機能用のgemを導入
-gem "devise"
+gem 'devise'
+
+## turboの動作をするためにWebpackerを導入
+gem 'webpacker'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
