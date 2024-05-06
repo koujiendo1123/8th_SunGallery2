@@ -6,6 +6,17 @@ Rails.application.routes.draw do
   
   # 取り急ぎトップページを作成
   root 'top#index'
+  
   # 絵画のルーティングを作成
   resources :paintings
+
+  # カスタムコントローラーにルーティング
+  devise_for :general_users, controllers: {
+    # ↓ローカルに追加されたコントローラーを参照する(コントローラー名: "コントローラーの参照先")
+    registrations: "general_users/registrations",
+    sessions: "general_users/sessions",
+    passwords: "general_users/passwords",
+    confirmations: "general_users/confirmations"
+  }
+
 end

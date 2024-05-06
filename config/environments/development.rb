@@ -1,6 +1,21 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              ENV['SMTP_ADDRESS'], # SMTPサーバーのアドレス
+    port:                 ENV['SMTP_PORT'],    # SMTPサーバーのポート
+    domain:               ENV['SMTP_DOMAIN'],  # メール送信時に使用するドメイン
+    user_name:            ENV['SMTP_USER_NAME'], # メールアカウントのユーザー名
+    password:             ENV['SMTP_PASSWORD'], # メールアカウントのパスワード
+    authentication:       'plain',             # 認証の種類
+    enable_starttls_auto: true                 # STARTTLSを自動で使用するかどうか
+  }
+
+  # deviceのメール機能を実装するために追記
+  # RAILS_HOSTとRAILS_PORTの環境変数を使用
+  config.action_mailer.default_url_options = { host: ENV['RAILS_HOST2'], port: ENV['RAILS_PORT2'] }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
