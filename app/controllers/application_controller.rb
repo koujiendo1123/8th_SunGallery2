@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
 
   # gem deviseを導入するために下記を記載
   def configure_permitted_parameters
-    # /users/sign_up
+    # ユーザー登録時にname,email,password,password_confirmationのストロングパラメータを追加。通常パスワードは不要なはずだが、エラーが出たので追加。
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
+    # ユーザー編集時にnameのストロングパラメータを追加
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name,:password])
+
   end
 end

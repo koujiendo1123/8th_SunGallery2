@@ -16,6 +16,9 @@
       <% end %>%>
       <% if general_user_signed_in? %>
         <li style="margin-left: 20px;">
+          <%= link_to current_general_user.name, general_users_profile_path, style: "color: white; text-decoration: none;" %>
+        </li>
+        <li style="margin-left: 20px;">
           <%= button_to "ログアウト", destroy_general_user_session_path, method: :delete, form: { data: { turbo: false, confirm: "本当にログアウトしますか？" } }, class: "btn btn-link" , style: "color: white; text-decoration: none;"%>
         </li>
       <% end %>

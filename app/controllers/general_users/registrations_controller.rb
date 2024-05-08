@@ -6,7 +6,7 @@ class GeneralUsers::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-     @generaluser = GeneralUser.new
+      @generaluser = GeneralUser.new
      super
   end
 
@@ -17,12 +17,22 @@ class GeneralUsers::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    @generaluser = current_general_user
     super
   end
 
   # PUT /resource
   def update
-    super
+     @generaluser = current_general_user
+  if @generaluser.update_without_password(account_update_params)
+    redirect_to after_update_path_for(@generaluser), notice: 'プロフィールが更新されました。'
+    return # ここでアクションを終了させる
+  else
+    render :edit
+    return # render後にアクションを終了させる
+  end
+    super 
+    # この行は実際には到達しないが、独自の更新処理が不要な場合にDeviseのデフォルトの処理を利用するために残しておく
   end
 
   # DELETE /resource
@@ -48,7 +58,7 @@ class GeneralUsers::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
   # The path used after sign up.
@@ -59,5 +69,19 @@ class GeneralUsers::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
     super(resource)
+  end
+
+  # 下記でパスワードなしでデータをアップデートできるようにする。デフォルトだとできない
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+  # プロフィール編集後にトップページでなく、プロフィール画面に飛ぶようにする。
+  def after_update_path_for(resource)
+    # 自分で設定した「マイページ」へのパス
+    general_users_profile_path
+  end
+  # アップデートを実施するときのストロングパラーメータ用メソッド
+  def account_update_params
+    params.require(:general_user).permit(:name)
   end
 end
