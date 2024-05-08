@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'general_users/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -18,5 +19,6 @@ Rails.application.routes.draw do
     passwords: "general_users/passwords",
     confirmations: "general_users/confirmations"
   }
+  get "general_users/profile" => "general_users#show"
 
 end
