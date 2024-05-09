@@ -9,7 +9,7 @@ class AuthorsController < ApplicationController
   
   def def create
     @author = Author.new(params[:object])
-    if @object.save
+    if @author.save
       flash[:success] = "Object successfully created"
       redirect_to @author
     else
