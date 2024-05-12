@@ -5,4 +5,5 @@ class GeneralUser < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable #メール認証機能のために追記
 
   validates :name, presence: true
+  has_one :author, as: :authorable
 end

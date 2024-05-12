@@ -3,25 +3,38 @@ class AuthorsController < ApplicationController
     @authors = Author.all
   end
 
-  def def new
+  def new
     @author = Author.new
   end
   
-  def def create
-    @author = Author.new(params[:object])
-    if @object.save
-      flash[:success] = "Object successfully created"
-      redirect_to @author
+  def create
+    @author = Author.new(permit_params)
+    if @author.save
+      flash[:success] = "作者の作成に成功しました"
+      redirect_to authors_path
     else
-      flash[:error] = "Something went wrong"
-      render 'new'
+      flash[:error] = "作者の作成に失敗しました"
+      render 'new', status: :unprocessable_entity
     end
+  end
+
+  def show
+    @author = Author.find(params[:id])    
+  end
+
+  def edit
+    @author = Author.find(params[:id])
+  end
+  
+  def update
+    @author = Author.find(params[:id])
+    @author.update(permit_params)
+    redirect_to @author    
   end
   
   private
   
   def permit_params
-    params.require(:author).permit(:name)
+    params.require(:author).permit(:name, :authorable_type, :authorable_id)
   end
-
 end

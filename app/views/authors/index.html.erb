@@ -1,0 +1,27 @@
+<h1>作者一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>関連タイプ</th>
+      <th>関連ID</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td><%= author.authorable_type %></td>
+        <td><%= author.authorable_id %></td>
+        <td>
+          <%= link_to '表示', author_path(author) %>
+          <%= link_to '編集', edit_author_path(author) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新しい作者を作成', new_author_path %>

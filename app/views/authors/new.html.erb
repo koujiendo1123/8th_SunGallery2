@@ -1,0 +1,31 @@
+<h1>作者登録</h1>
+<%= form_with model: @author, url: authors_path, local: true do |form| %>
+  <%# nameの入力フォーム生成 %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %> 
+  </p>
+
+  <%# authorable_typeの設定 %>
+  <%= form.hidden_field :authorable_type, value: 'GeneralUser' %>
+
+  <%# authorable_idの入力フォーム生成 %>
+  <p>
+    <%= form.label :authorable_id, "Authorable ID" %><br>
+    <%= form.number_field :authorable_id %>
+  </p>
+
+  <%# 送信ボタンを生成 %>
+  <p><%= form.submit %></p>
+<% end %>
+
+<%= link_to '戻る', authors_path %>
+
+<%# エラーメッセージの表示 %>
+<% if @author.errors.any? %>
+  <ul>
+    <% @author.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
