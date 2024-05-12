@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # 絵画のルーティングを作成
   resources :paintings
 
+  # 作者のルーティングを作成
+  resources :authors
+
   # カスタムコントローラーにルーティング
   devise_for :general_users, controllers: {
     # ↓ローカルに追加されたコントローラーを参照する(コントローラー名: "コントローラーの参照先")
