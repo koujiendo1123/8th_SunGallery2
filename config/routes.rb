@@ -8,8 +8,15 @@ Rails.application.routes.draw do
   # 取り急ぎトップページを作成
   root 'top#index'
   
-  # 絵画のルーティングを作成
+  # 絵画のルーティングを一通り作成
   resources :paintings
+  
+  # 絵画の印刷用ルーティングを作成
+  resources :paintings, only: [:show] do
+    member do
+      get :print_images
+    end
+  end
 
   # 作者のルーティングを作成
   resources :authors
@@ -23,5 +30,8 @@ Rails.application.routes.draw do
     confirmations: "general_users/confirmations"
   }
   get "general_users/profile" => "general_users#show"
+
+  # 画像アップロード用のルーティングを作成
+  post "paintings/upload_image", to: "paintings#upload_image"
 
 end
