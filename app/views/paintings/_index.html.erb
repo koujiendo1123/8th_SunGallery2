@@ -1,22 +1,6 @@
 <h1>NEW</h1>                    
 <div class="container mt-4">
     <div class="row">
-        <% @paintings.each do |painting| %>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-            <%= link_to painting_path(painting.id) do %>
-                <%= image_tag '8th_SunGallary_logo.png', class: 'card-img-top', alt: painting.name %>
-                <% end %>
-                <div class="card-body">
-                    <!-- 作品名 -->
-                    <h5 class='card-title'>作品名　<%= painting.name %></h5>
-                     <!-- 作者名 -->
-                    <h5 class='card-title'>作者名　<%= painting.author.name %></h5>
-                    <!-- ダウンロードボタン -->
-                    <a href='#' class='btn btn-primary'>ダウンロード</a>
-                </div>
-            </div>
-        </div>
-        <% end %>
+        <%= render @paintings %>
     </div>
 </div>

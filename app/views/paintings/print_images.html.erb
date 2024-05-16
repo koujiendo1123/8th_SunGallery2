@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Print Images</title>
+  <style>
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .printableArea, .printableArea * {
+        visibility: visible;
+      }
+      .printableArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="printableArea">
+    <% @painting.images.each do |image| %>
+      <div>
+        <%= image_tag image, class: "img-fluid", alt: @painting.name %>
+      </div>
+    <% end %>
+  </div>
+  <script>
+    window.onload = function() {
+      window.print();
+    };
+    window.onafterprint = function() {
+      window.close();
+    };
+  </script>
+</body>
+</html>
