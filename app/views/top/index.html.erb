@@ -1,9 +1,21 @@
 <div class="container">
   <br>
-    <div class="row">
-      <div class="col-12 col-md-4 mx-auto">
-        <%= image_tag 'Sunflower.jpg', class: "img-fluid", alt: "Responsive image" %>
-      </div>
-        <%= render 'paintings/index' , paintings: @paintings %>
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto">
+      <%= image_tag 'Sunflower.jpg', class: "img-fluid", alt: "Responsive image" %>
     </div>
+    <div class="col-12 col-md-6">
+      <p>
+        8th_SunGallaryはA4サイズの用紙に画像を印刷することによって、簡単に実物大の絵画の大きさを体験できるサービスです。
+        <br>
+        <br>
+        早速A4サイズの用紙を用意して印刷してみましょう！！
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <%= render 'paintings/index', paintings: @paintings %>
+    </div>
+  </div>
 </div>

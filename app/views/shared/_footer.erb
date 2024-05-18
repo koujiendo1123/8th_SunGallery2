@@ -2,9 +2,17 @@
   <!-- ナビゲーションリンクのセクション -->
   <div id="navbar">
     <ul class="list-unstyled d-flex mb-0">
-      <li><%= link_to "HELP", "#", class: "text-white text-decoration-none ms-3" %></li>
+      <%
+=begin%>
+ <li><%= link_to "HELP", "#", class: "text-white text-decoration-none ms-3" %></li> 
+<%
+=end%>
       <li><%= link_to "privacy policy", privacy_policy_path, class: "text-white text-decoration-none ms-3" %></li>
-      <li><%= link_to "service", "#", class: "text-white text-decoration-none ms-3" %></li>
+      <%
+=begin%>
+ <li><%= link_to "service", "#", class: "text-white text-decoration-none ms-3" %></li> 
+<%
+=end%>
       <li><%= link_to "Terms of Use", terms_path, class: "text-white text-decoration-none ms-3" %></li>
     </ul>
   </div>
