@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'static_pages/terms'
   get 'general_users/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,7 +11,13 @@ Rails.application.routes.draw do
   
   # 絵画のルーティングを一通り作成
   resources :paintings
+
+  # 利用規約のルーティングを作成
+  get 'terms', to: 'static_pages#terms'
   
+  # プライバシポリシーのルーティングを作成
+  get 'privacy_policy', to: 'static_pages#privacy_policy'
+
   # 絵画の印刷用ルーティングを作成
   resources :paintings, only: [:show] do
     member do
