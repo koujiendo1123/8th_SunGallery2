@@ -19,3 +19,18 @@
   height: auto;  /* 高さを自動で調整し、アスペクト比を維持 */
 }
 
+/* paintingページの写真の大きさを調整 */
+.img-fixed {
+  width: 100%; /* カードの横幅に合わせる */
+  height: 200px; /* 固定高さ */
+  object-fit: cover; /* 画像のアスペクト比を保ちながら、指定したサイズに収める */
+}
+
+/* 詳細画像表示の画像の大きさに上限を設定 */
+.img-limited {
+  max-width: 800px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+}
+

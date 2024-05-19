@@ -1,7 +1,17 @@
-<h1>プロフィール</h1>
-<h3>ユーザー名</h3>
-<%= @general_users.name %>
-<h3>メールアドレス</h3>
-<%= @general_users.email %>
-<p>編集画面へ</p>
-<%= link_to 'edit', edit_general_user_registration_path %>
+<div class="container home-sections d-flex flex-row justify-content-center align-items-center">
+  <div class="profile-section pt-3">
+    <div class="card text-center pt-5 mx-auto" style="width: 23rem;">
+      <div class="card-body">
+        <h1>プロフィール</h1>
+        <h3>ユーザー名</h3>
+        <p><%= @general_users.name %></p> <!-- 変数名を@general_usersから@general_userに修正 -->
+
+        <h3>メールアドレス</h3>
+        <p><%= @general_users.email %></p> <!-- 変数名を@general_usersから@general_userに修正 -->
+
+        <%= link_to '編集画面へ', edit_general_user_registration_path, class: "btn btn-primary mt-3" %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

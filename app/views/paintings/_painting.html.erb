@@ -1,22 +1,22 @@
 <div class="col-md-4 mb-4">
-            <div class="card">
-            <%= link_to painting_path(painting.id) do %>
-  <%= image_tag painting.images.first, class: 'card-img-top', alt: painting.name if painting.images.attached? %>
-<% end %>
+  <div class="card">
+    <%= link_to painting_path(painting.id) do %>
+      <%= image_tag painting.images.first, class: 'card-img-top img-fixed', alt: painting.name if painting.images.attached? %>
+    <% end %>
 
-                <div class="card-body">
-                    <!-- 作品名 -->
-                    <h5 class='card-title'>作品名　<%= painting.name %></h5>
-                     <!-- 作者名 -->
-                    <h5 class='card-title'>作者名　<%= painting.author.name %></h5>
-                    <!-- 画像のプレビュー領域（非表示で印刷用） -->
+    <div class="card-body">
+      <!-- 作品名 -->
+      <h5 class='card-title'>作品名 <%= painting.name %></h5>
+      <!-- 作者名 -->
+      <h5 class='card-title'>作者名 <%= painting.author.name %></h5>
+      <!-- 画像のプレビュー領域（非表示で印刷用） -->
       <div id="printable-images" style="display: none;">
         <% painting.images.each do |image| %>
-          <%= image_tag image, class: 'img-fluid', alt: painting.name %>
+          <%= image_tag image, class: 'img-fluid img-fixed', alt: painting.name %>
         <% end %>
-        </div>
-                    <!-- 印刷ボタン -->
-<%= link_to '印刷', print_images_painting_path(painting), class: 'btn btn-primary', target: '_blank', rel: 'noopener noreferrer' %>
-                </div>
-            </div>
-        </div>
+      </div>
+      <!-- 印刷ボタン -->
+      <%= link_to '印刷', print_images_painting_path(painting), class: 'btn btn-primary', target: '_blank', rel: 'noopener noreferrer' %>
+    </div>
+  </div>
+</div>
