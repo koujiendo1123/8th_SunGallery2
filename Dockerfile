@@ -10,10 +10,6 @@ ENV HOST 0.0.0.0
 # WORKDIR：作業ディレクトリ
 WORKDIR ${APP_HOME}
 
-# ローカルのGemfileをコンテナ内の/app/Gemfileに
-COPY Gemfile ${APP_HOME}/Gemfile
-COPY Gemfile.lock ${APP_HOME}/Gemfile.lock
-
 # Node.jsとYarnをインストール
 RUN apt-get update && \
     apt-get install -y default-mysql-client git && \
@@ -24,12 +20,17 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y yarn
 
-# Gemをアップデート
+# GemfileとGemfile.lockをコピー
+COPY Gemfile ${APP_HOME}/Gemfile
+COPY Gemfile.lock ${APP_HOME}/Gemfile.lock
+
+# Bundlerのキャッシュ利用
 RUN bundle install
 
+# アプリケーションの全ファイルをコピー
 COPY . ${APP_HOME}
 
-# コンテナ起動時に実行させるスクリプト
+# エントリポイントスクリプトの設定
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]

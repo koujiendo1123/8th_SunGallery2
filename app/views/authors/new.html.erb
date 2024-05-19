@@ -21,11 +21,3 @@
 
 <%= link_to '戻る', authors_path %>
 
-<%# エラーメッセージの表示 %>
-<% if @author.errors.any? %>
-  <ul>
-    <% @author.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
