@@ -1,10 +1,9 @@
 {
+  "name": "8th_SunGallery",
+  "private": true,
   "dependencies": {
-    "@rails/webpacker": "^5.4.4",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
-  },
-  "devDependencies": {
-    "webpack-dev-server": "^3"
+    "@rails/webpacker": "5.4.3",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0"
   }
 }
