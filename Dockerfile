@@ -27,13 +27,6 @@ COPY Gemfile.lock ${APP_HOME}/Gemfile.lock
 # Bundlerのキャッシュ利用
 RUN bundle install
 
-# package.jsonとyarn.lockをコピー
-COPY package.json ${APP_HOME}/package.json
-COPY yarn.lock ${APP_HOME}/yarn.lock
-
-# Yarnの依存関係をインストール
-RUN yarn install
-
 # アプリケーションの全ファイルをコピー
 COPY . ${APP_HOME}
 
