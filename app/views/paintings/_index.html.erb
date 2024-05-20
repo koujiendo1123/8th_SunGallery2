@@ -1,6 +1,10 @@
 <h1>NEW</h1>                    
 <div class="container mt-4">
     <div class="row">
-        <%= render @paintings %>
+        <% if @paintings.present? %>
+            <%= render @paintings %>
+        <% else %>
+            <p>作品はありません</p>
+        <% end %>
     </div>
 </div>
