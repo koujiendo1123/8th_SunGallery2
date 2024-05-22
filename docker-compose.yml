@@ -21,6 +21,11 @@ services:
       - db
     links:
       - db
+    environment:
+      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_HOST: db
   # Mysqlの設定
   db:
     image: mysql:8.0
