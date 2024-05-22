@@ -12,9 +12,10 @@ gem "sprockets-rails"
 
 # Use mysql as the database for Active Record
 # 開発環境でのデータベースを定義
-gem "mysql2", "~> 0.5", group: :development
-# 本番環境でのデータベースを定義
-gem 'pg', group: :production
+gem "mysql2" #, "~> 0.5", group: :development
+
+# # 本番環境でのデータベースを定義→本番環境でもmysqlを使う形に変更するためにコメントアウト
+# gem 'pg', group: :production
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
