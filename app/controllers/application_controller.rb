@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
     # ユーザー編集時にnameのストロングパラメータを追加
     devise_parameter_sanitizer.permit(:account_update, keys: [:name,:password])
+  end
 
+  private
+
+  def default_url_options
+    { host: 'www.8th-sungallery.com' }
   end
 end
