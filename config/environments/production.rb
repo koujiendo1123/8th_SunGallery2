@@ -24,7 +24,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
   config.assets.compile = false
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
   config.force_ssl = true
   config.log_level = :info
   config.log_tags = [ :request_id ]
