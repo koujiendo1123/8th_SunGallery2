@@ -1,5 +1,5 @@
 <h1>ようこそ8th_SunGalleryへ！</h1>
-<p>下記メールをご登録いいだきまして誠にありがとうございます。</p>
- <p><%= @email %>!</p>
+<p>下記メールをご登録いただきまして誠にありがとうございます。</p>
+<p><%= @resource.email %>!</p>
 <p>下記の「登録」ボタンから本登録を完了してください。</p>
-<p><%= link_to '登録', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to '登録', confirmation_url(@resource, confirmation_token: @token, host: 'www.8th-sungallery.com') %></p>
