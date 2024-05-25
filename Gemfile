@@ -9,6 +9,8 @@ gem "rails", "~> 7.0.6"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# heroku環境ではs3を導入するために下記を追記
+gem 'aws-sdk-s3', require: false
 
 # Use mysql as the database for Active Record
 # 開発環境でのデータベースを定義
