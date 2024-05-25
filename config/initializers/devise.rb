@@ -24,7 +24,8 @@ end
 Devise.setup do |config|
 
   # デフォルトのホストを設定
-  config.mailer.default_url_options = { host: 'www.8th-sungallery.com' }
+  # config.mailer.default_url_options = { host: 'www.8th-sungallery.com' }
+  
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
