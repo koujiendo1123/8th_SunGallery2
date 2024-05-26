@@ -1,8 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  # deviceのメール機能を実装するために追記。仮でexample.comとする
-  config.action_mailer.default_url_options = { host: '8th-sungallery.com' }
+  # deviceのメール機能を実装するために追記。cnameの関係でwww.8th-sungallery.comとする。
+  config.action_mailer.default_url_options = { host: 'www.8th-sungallery.com' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # herokuでメールを送付する設定
