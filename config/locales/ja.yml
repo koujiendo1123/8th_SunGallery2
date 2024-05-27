@@ -29,9 +29,12 @@ ja:
         name: 名前
         authorable_type: 関連タイプ
         authorable_id: 関連ID
+      general_user:
+        email: Eメール
     models:
       user: ユーザー
       author: 著者
+      general_user: 一般ユーザー
   errors:
     models:
       author:
@@ -40,9 +43,14 @@ ja:
             required: "関連するオブジェクトが必要です"
           name:
             blank: "名前を入力してください"
+      general_user:
+        attributes:
+          email:
+            taken: "このメールアドレスは既に使用されています"
     messages:
       blank: "を入力してください"
       required: "必須項目です"
+      taken: "は既に使用されています"
       already_confirmed: "は既に登録済みです。ログインしてください。"
       confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。新しくリクエストしてください。"
       expired: "の有効期限が切れました。新しくリクエストしてください。"

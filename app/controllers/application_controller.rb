@@ -13,8 +13,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def default_url_options
-    { host: 'www.8th-sungallery.com' }
-  end
+  # 必要ない気がしたのでコメントアウト
+  # def default_url_options
+  #   if Rails.env.production?
+  #     { host: 'www.8th-sungallery.com' }
+  #   else
+  #     { host: 'localhost', port: 3001 }
+  #   end
+  # end
 end
